@@ -1,0 +1,15 @@
+{
+    "name": "flossomat/bootstrap-kirby-starter",
+    "description": "Bootstrap 5 + Kirby CMS Starter Template",
+    "type": "project",
+    "require": {
+        "php": ">=8.0.0",
+        "getkirby/cms": "^3.9"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "getkirby/composer-installer": true
+        }
+    }
+} 

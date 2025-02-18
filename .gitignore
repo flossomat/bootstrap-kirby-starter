@@ -128,3 +128,13 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Kirby specific
+/kirby
+/site/accounts
+/site/sessions
+/site/config/.license
+/media/*
+!/media/index.html
+/site/cache/*
+!/site/cache/index.html

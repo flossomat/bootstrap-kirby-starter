@@ -5,7 +5,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "setup": "npm install && gulp init"
+    "setup": "npm install && composer create-project getkirby/plainkit . --ignore-platform-reqs && gulp init"
   },
   "dependencies": {
     "bootstrap": "^5.3.0",
