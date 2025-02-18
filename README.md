@@ -14,7 +14,7 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 
 ## Voraussetzungen
 
-1. PHP 8.0+ (https://www.php.net/downloads)
+1. PHP 8.1-8.4 (https://www.php.net/downloads)
 2. Composer:
    ```bash
    # macOS mit Homebrew:
