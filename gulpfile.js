@@ -10,6 +10,9 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch');
 
+// Konfiguriere sass für die neue API
+sass.compiler = require('sass');
+
 /**
  * Gulp-Konfiguration für das formt Website-Projekt
  * Verarbeitet SCSS zu CSS, optimiert Assets und ermöglicht FTP-Deployment
@@ -29,7 +32,10 @@ gulp.task('sass', function () {
         'assets/sass/**/*.scss'
     ])
     .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(sass({
+        implementation: require('sass'),
+        outputStyle: 'compressed'
+    }).on('error', sass.logError))
     .pipe(autoprefixer({ Browserslist: ['last 2 versions'], cascade: false }))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./assets/css/'))
