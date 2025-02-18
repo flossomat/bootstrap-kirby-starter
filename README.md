@@ -7,9 +7,8 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 - Kirby CMS Ready
 - SASS/SCSS Kompilierung
 - JavaScript Optimierung
-- Bildoptimierung
 - Browser-Sync
-- FTP Deployment
+- Live Reload
 - Back to Top Button
 
 ## Voraussetzungen
@@ -50,6 +49,61 @@ rm -rf bootstrap-temp
 npm install     # Node-Abhängigkeiten installieren
 npm run setup   # Projekt initialisieren
 ```
+
+## Verzeichnisstruktur
+
+```
+projekt/
+├── assets/
+│   ├── css/          # Kompilierte CSS-Dateien
+│   ├── fonts/        # Schriftarten
+│   ├── images/       # Optimierte Bilder
+│   ├── js/          # JavaScript-Dateien
+│   └── sass/        # SCSS-Quelldateien
+├── content/         # Kirby Inhalte
+├── kirby/          # Kirby Core
+└── site/           # Kirby System
+    ├── blueprints/ # Kirby Blueprints
+    ├── snippets/   # Kirby Snippets
+    └── templates/  # Kirby Templates
+```
+
+## Entwicklung
+
+### Assets
+
+Das Projekt nutzt Bootstrap 5 und Gulp für Asset-Management:
+
+- SASS/SCSS wird zu CSS kompiliert
+- JavaScript wird optimiert
+- Bilder werden automatisch optimiert
+- Browser-Sync für Live-Reload
+- FTP-Deployment für einfaches Hochladen
+
+### Befehle
+
+- `npm start`: Startet den Entwicklungsserver mit Browser-Sync
+- `npm run build`: Erstellt optimierte Assets für Produktion
+- `gulp deploy-dry`: Testet das FTP-Deployment
+- `gulp deploy`: Lädt Dateien auf den Server
+- `gulp clean-cache`: Löscht den Kirby-Cache
+
+### SASS-Struktur
+
+```
+assets/sass/
+├── main.scss         # Haupt-SCSS-Datei
+├── _bootstrap.scss   # Bootstrap-Konfiguration
+├── _variables.scss   # Projekt-Variablen
+└── _custom.scss      # Benutzerdefinierte Stile
+```
+
+### FTP-Deployment
+
+1. `.env.example` zu `.env` kopieren
+2. FTP-Zugangsdaten in `.env` eintragen
+3. `gulp deploy-dry` zum Testen
+4. `gulp deploy` für tatsächliches Deployment
 
 ## Weitere Informationen
 
