@@ -1,1 +1,6 @@
+// Verwende die neuen @use und @forward Regeln
+@use 'variables';
+
 // Benutzerdefinierte Stile hier
+// Beispiel für Zugriff auf Variablen:
+// color: variables.$primary;

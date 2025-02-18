@@ -1,2 +1,9 @@
-$primary: #007bff;
-$enable-rounded: true;
+// Exportiere die Variablen für den Bootstrap-Import
+$primary: #007bff !default;
+$enable-rounded: true !default;
+
+// Stelle die Variablen für andere Module zur Verfügung
+:export {
+  primary: $primary;
+  enableRounded: $enable-rounded;
+}

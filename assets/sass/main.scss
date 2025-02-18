@@ -1,3 +1,6 @@
-@import "variables";
-@import "../../node_modules/bootstrap/scss/bootstrap";
-@import "custom";
+@use 'variables';
+@use '../../node_modules/bootstrap/scss/bootstrap' with (
+  $primary: variables.$primary,
+  $enable-rounded: variables.$enable-rounded
+);
+@use 'custom';
