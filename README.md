@@ -26,22 +26,23 @@ node -v       # Sollte Node.js Version anzeigen
 npm -v        # Sollte npm Version anzeigen
 ```
 
-2. Bootstrap Kirby Starter klonen:
+2. Kirby Plainkit klonen:
 ```bash
-git clone https://github.com/flossomat/bootstrap-kirby-starter.git mein-projekt
+git clone https://github.com/getkirby/plainkit.git mein-projekt
 cd mein-projekt
 ```
 
-3. Kirby Starterkit hinzufügen:
+3. Bootstrap Starter hinzufügen:
 ```bash
-# Kirby Starterkit temporär klonen
-git clone https://github.com/getkirby/starterkit.git kirby-temp
-# Kirby-spezifische Dateien kopieren
-cp -r kirby-temp/kirby ./
-cp -r kirby-temp/site ./
-cp -r kirby-temp/content ./
+# Bootstrap Starter temporär klonen
+git clone https://github.com/flossomat/bootstrap-kirby-starter.git bootstrap-temp
+# Bootstrap-spezifische Dateien kopieren
+cp -r bootstrap-temp/assets ./
+cp bootstrap-temp/gulpfile.js ./
+cp bootstrap-temp/package.json ./
+cp bootstrap-temp/.env.example ./
 # Aufräumen
-rm -rf kirby-temp
+rm -rf bootstrap-temp
 ```
 
 4. Projekt aufsetzen:
