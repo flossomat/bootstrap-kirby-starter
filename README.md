@@ -55,7 +55,7 @@ git pull bootstrap main --allow-unrelated-histories
 
 4. Projekt aufsetzen:
 ```bash
-composer install    # Installiert Kirby CMS
+composer install    # Installiert Kirby CMS mit exakten Versionen aus composer.lock
 npm run setup      # Installiert npm Abhängigkeiten und initialisiert das Projekt
 ```
 
