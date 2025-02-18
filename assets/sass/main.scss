@@ -1,8 +1,5 @@
 @use "sass:math";
 @use "sass:color";
-@use "../../node_modules/bootstrap/scss/bootstrap" with (
-  $primary: #007bff,
-  $enable-rounded: true
-);
-@use "variables";
-@use "custom";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "variables";
+@import "custom";
