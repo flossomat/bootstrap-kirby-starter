@@ -1,24 +1,15 @@
 "use strict";
-const fs = require('fs');
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const autoprefixer = require('gulp-autoprefixer');
-const newer = require('gulp-newer');
-const sourcemaps = require('gulp-sourcemaps');
-const imagemin = require('gulp-imagemin');
-const browserSync = require('browser-sync').create();
-const reload = browserSync.reload;
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const watch = require('gulp-watch');
-const cleanCSS = require('gulp-clean-css');
-const { rimraf } = require('rimraf');
-const FtpDeploy = require('ftp-deploy');
-const ftp = require('basic-ftp');
-
-require('dotenv').config();
-
-var imgSrc = 'assets/images/originals/*',
+var gulp = require('gulp'),
+    sass = require('gulp-sass')(require('sass')),
+    autoprefixer = require('gulp-autoprefixer'),
+    newer = require('gulp-newer'),
+    sourcemaps = require('gulp-sourcemaps'),
+    browserSync = require('browser-sync').create(),
+    reload = browserSync.reload,
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    watch = require('gulp-watch'),
+    imgSrc = 'assets/images/originals/*',
     imgDest = 'assets/images/';
 
 /**
@@ -37,35 +28,24 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', function () {
     return gulp.src([
-        'assets/sass/main.scss'
+        'assets/sass/**/*.scss'
     ])
     .pipe(sourcemaps.init())
-    .pipe(sass({
-        includePaths: ['node_modules/bootstrap/scss/'],
-        outputStyle: 'compressed'
-    }).on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(cleanCSS())
+    .pipe(autoprefixer({ Browserslist: ['last 2 versions'], cascade: false }))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./assets/css/'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
-    gulp.watch('assets/sass/**/*.scss', gulp.series('sass'));
-
-    // PHP Files watching
-    gulp.watch('site/**/*.php').on('change', browserSync.reload);
+    var cssFiles = ['assets/sass/*.scss'];
+    gulp.watch(cssFiles, gulp.parallel('sass'))
+    .on('change', browserSync.reload);
 
     // Watch .php files
     var watcher3 = gulp.watch('site/**/*.php');
     watcher3.on('change', browserSync.reload);
-
-    // Watch js directory
-    //gulp.watch('assets/js/**/*.js', ['js']).on("change", browserSync.reload);
-    // Watch original images directory
-    //gulp.watch(imgSrc, ['images']).on("change", browserSync.reload);
-    
 });
 
 gulp.task('images', function() {
@@ -79,12 +59,12 @@ var jsInput = { js: 'assets/js/dev/**/*.js' }
 gulp.task('js', function() {
     return gulp.src([
         'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+        'node_modules/@popperjs/core/dist/umd/popper.min.js',
         'assets/js/dev/**/*.js'
     ])
-    .pipe(concat('script.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./assets/js'))
-    .pipe(browserSync.stream());
+    .pipe(concat('script.js'))
+    .pipe(gulp.dest('./assets/js'));
 });
 
 // Neuer Build-Task für Produktion
