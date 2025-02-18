@@ -68,19 +68,19 @@ projekt/
 
 ## Entwicklung
 
-### SASS-Struktur
-
-```
-assets/sass/
-├── main.scss         # Haupt-SCSS-Datei
-├── _variables.scss   # Bootstrap-Variablen
-└── _custom.scss      # Benutzerdefinierte Stile
-```
-
 ### Verfügbare Befehle
 
-- `npm start`: Startet den Entwicklungsserver mit Browser-Sync
+#### NPM
+- `npm run setup`: Initialisiert das Projekt (Installation & Grundstruktur)
+- `npm start`: Startet den Entwicklungsserver mit Live-Reload
 - `npm run build`: Erstellt optimierte Assets für Produktion
+
+#### Gulp
+- `gulp`: Startet Entwicklungsmodus (Browser-Sync, Watch, Kompilierung)
+- `gulp sass`: Kompiliert SCSS zu CSS
+- `gulp js`: Kompiliert JavaScript-Dateien
+- `gulp build`: Erstellt optimierte Assets
+- `gulp init`: Initialisiert die Projektstruktur
 
 ### Entwicklungsserver
 
