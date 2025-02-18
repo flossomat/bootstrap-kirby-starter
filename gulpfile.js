@@ -1,20 +1,20 @@
 "use strict";
 const fs = require('fs');
-const gulp = require('gulp'),
-    sass = require('gulp-sass')(require('sass')),
-    autoprefixer = require('gulp-autoprefixer'),
-    newer = require('gulp-newer'),
-    sourcemaps = require('gulp-sourcemaps'),
-    imagemin = require('gulp-imagemin'),
-    browserSync = require('browser-sync').create(),
-    reload = browserSync.reload,
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    watch = require('gulp-watch'),
-    cleanCSS = require('gulp-clean-css'),
-    { rimraf } = require('rimraf'),
-    FtpDeploy = require('ftp-deploy'),
-    ftp = require('basic-ftp');
+const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('gulp-autoprefixer');
+const newer = require('gulp-newer');
+const sourcemaps = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const watch = require('gulp-watch');
+const cleanCSS = require('gulp-clean-css');
+const { rimraf } = require('rimraf');
+const FtpDeploy = require('ftp-deploy');
+const ftp = require('basic-ftp');
 
 require('dotenv').config();
 
@@ -25,10 +25,6 @@ var imgSrc = 'assets/images/originals/*',
  * Gulp-Konfiguration für das formt Website-Projekt
  * Verarbeitet SCSS zu CSS, optimiert Assets und ermöglicht FTP-Deployment
  */
-
-// Erforderliche Gulp 4 Plugins und Konfiguration
-var gulp = require('gulp');
-var sass = require('gulp-sass')(require('sass'));
 
 gulp.task('browser-sync', function() {
     browserSync.init({
