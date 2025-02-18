@@ -1,10 +1,8 @@
 @use "sass:math";
 @use "sass:color";
-@use "bootstrap" as * with (
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
   $primary: #007bff,
   $enable-rounded: true
 );
-
-// Import eigene Stile
-@import "variables";
-@import "custom";
+@use "variables";
+@use "custom";
