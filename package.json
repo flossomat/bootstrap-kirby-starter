@@ -5,7 +5,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "setup": "composer install && npm install && gulp init"
+    "setup": "npm install && gulp init"
   },
   "dependencies": {
     "bootstrap": "^5.3.0",
