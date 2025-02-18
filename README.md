@@ -15,31 +15,16 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 ## Voraussetzungen
 
 1. PHP 8.1-8.3 (https://www.php.net/downloads)
-2. Composer:
-   ```bash
-   # macOS mit Homebrew:
-   brew install composer
-
-   # Windows:
-   # Installer von https://getcomposer.org/download/ herunterladen
-   ```
-3. Node.js & npm (https://nodejs.org/)
+2. Node.js & npm (https://nodejs.org/)
 
 ## Installation
 
 1. Voraussetzungen prüfen:
 ```bash
 php -v        # Sollte PHP 8.1-8.3 anzeigen
-composer -V   # Sollte Composer Version anzeigen
 node -v       # Sollte Node.js Version anzeigen
 npm -v        # Sollte npm Version anzeigen
 ```
-
-# Falls Composer nicht gefunden wird:
-# macOS/Linux:
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-# oder
-export PATH="/usr/local/bin:$PATH"
 
 2. Kirby als Git-Submodule installieren:
 ```bash
