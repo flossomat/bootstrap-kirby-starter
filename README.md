@@ -14,9 +14,16 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 
 ## Voraussetzungen
 
-- PHP 8.0+
-- Composer (https://getcomposer.org/download/)
-- Node.js & npm (https://nodejs.org/)
+1. PHP 8.0+ (https://www.php.net/downloads)
+2. Composer:
+   ```bash
+   # macOS mit Homebrew:
+   brew install composer
+
+   # Windows:
+   # Installer von https://getcomposer.org/download/ herunterladen
+   ```
+3. Node.js & npm (https://nodejs.org/)
 
 ## Installation
 
@@ -27,6 +34,12 @@ composer -V   # Sollte Composer Version anzeigen
 node -v       # Sollte Node.js Version anzeigen
 npm -v        # Sollte npm Version anzeigen
 ```
+
+# Falls Composer nicht gefunden wird:
+# macOS/Linux:
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+# oder
+export PATH="/usr/local/bin:$PATH"
 
 2. Kirby Plainkit klonen:
 ```bash
