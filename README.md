@@ -29,7 +29,7 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 
 1. Voraussetzungen prüfen:
 ```bash
-php -v        # Sollte PHP 8.0 oder höher anzeigen
+php -v        # Sollte PHP 8.1-8.3 anzeigen
 composer -V   # Sollte Composer Version anzeigen
 node -v       # Sollte Node.js Version anzeigen
 npm -v        # Sollte npm Version anzeigen
@@ -41,10 +41,16 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # oder
 export PATH="/usr/local/bin:$PATH"
 
-2. Kirby Plainkit klonen:
+2. Kirby als Git-Submodule installieren:
 ```bash
-git clone https://github.com/getkirby/plainkit mein-projekt
+# Kirby Starterkit klonen
+git clone https://github.com/getkirby/starterkit.git mein-projekt
 cd mein-projekt
+
+# Kirby als Submodule einrichten
+rm -R kirby
+git submodule add https://github.com/getkirby/kirby.git kirby
+git commit -m "Setup Kirby as a submodule"
 ```
 
 3. Bootstrap Starter hinzufügen:
@@ -55,7 +61,6 @@ git pull bootstrap main --allow-unrelated-histories
 
 4. Projekt aufsetzen:
 ```bash
-composer install    # Installiert Kirby CMS mit exakten Versionen aus composer.lock
 npm run setup      # Installiert npm Abhängigkeiten und initialisiert das Projekt
 ```
 
