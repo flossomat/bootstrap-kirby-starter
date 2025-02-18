@@ -39,7 +39,6 @@ git clone https://github.com/flossomat/bootstrap-kirby-starter.git bootstrap-tem
 cp -r bootstrap-temp/assets ./
 cp bootstrap-temp/gulpfile.js ./
 cp bootstrap-temp/package.json ./
-cp bootstrap-temp/.env.example ./
 # Aufräumen
 rm -rf bootstrap-temp
 ```
@@ -57,7 +56,6 @@ projekt/
 ├── assets/
 │   ├── css/          # Kompilierte CSS-Dateien
 │   ├── fonts/        # Schriftarten
-│   ├── images/       # Optimierte Bilder
 │   ├── js/          # JavaScript-Dateien
 │   └── sass/        # SCSS-Quelldateien
 ├── content/         # Kirby Inhalte
@@ -70,41 +68,35 @@ projekt/
 
 ## Entwicklung
 
-### Assets
-
-Das Projekt nutzt Bootstrap 5 und Gulp für Asset-Management:
-
-- SASS/SCSS wird zu CSS kompiliert
-- JavaScript wird optimiert
-- Bilder werden automatisch optimiert
-- Browser-Sync für Live-Reload
-- FTP-Deployment für einfaches Hochladen
-
-### Befehle
-
-- `npm start`: Startet den Entwicklungsserver mit Browser-Sync
-- `npm run build`: Erstellt optimierte Assets für Produktion
-- `gulp deploy-dry`: Testet das FTP-Deployment
-- `gulp deploy`: Lädt Dateien auf den Server
-- `gulp clean-cache`: Löscht den Kirby-Cache
-
 ### SASS-Struktur
 
 ```
 assets/sass/
 ├── main.scss         # Haupt-SCSS-Datei
-├── _bootstrap.scss   # Bootstrap-Konfiguration
-├── _variables.scss   # Projekt-Variablen
+├── _variables.scss   # Bootstrap-Variablen
 └── _custom.scss      # Benutzerdefinierte Stile
 ```
 
-### FTP-Deployment
+### Verfügbare Befehle
 
-1. `.env.example` zu `.env` kopieren
-2. FTP-Zugangsdaten in `.env` eintragen
-3. `gulp deploy-dry` zum Testen
-4. `gulp deploy` für tatsächliches Deployment
+- `npm start`: Startet den Entwicklungsserver mit Browser-Sync
+- `npm run build`: Erstellt optimierte Assets für Produktion
 
-## Weitere Informationen
+### Entwicklungsserver
 
-[... Rest der Dokumentation ...]
+Der Entwicklungsserver wird automatisch gestartet und bietet:
+- Live Reload bei Änderungen
+- SASS-Kompilierung
+- JavaScript-Optimierung
+- Browser-Synchronisation
+
+### Assets Build
+
+Der Build-Prozess optimiert:
+- SCSS wird zu CSS kompiliert und minimiert
+- JavaScript wird zusammengefasst und minimiert
+- Sourcemaps werden für Debugging generiert
+
+## Lizenz
+
+MIT License
