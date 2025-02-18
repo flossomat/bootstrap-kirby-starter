@@ -31,8 +31,8 @@ var sass = require('gulp-sass')(require('sass'));
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "localhost/bootstrap-kirby-starter/",
-        port: 3000,
+        proxy: "localhost:8888/bootstrap-kirby-starter/",
+        port: 8888,
         open: true,
         notify: false
     });
