@@ -88,10 +88,28 @@ projekt/
     └── templates/  # Kirby Templates
 ```
 
-## Entwicklung
+## Assets und Entwicklung
 
-- `npm start`: Startet den Entwicklungsserver
-- `npm run build`: Erstellt optimierte Assets
-- `gulp deploy-dry`: Testet das Deployment
-- `gulp deploy`: Lädt Dateien auf den Server
-- `gulp clean-cache`: Löscht den Kirby-Cache
+Das Projekt nutzt Bootstrap 5 und Gulp für Asset-Management:
+
+- SASS/SCSS Kompilierung
+- JavaScript Optimierung
+- Bildoptimierung
+- Browser-Sync
+- FTP Deployment
+
+### Entwicklungsserver starten:
+```bash
+npm start
+```
+
+### Assets bauen:
+```bash
+npm run build
+```
+
+### Deployment:
+```bash
+gulp deploy-dry  # Test
+gulp deploy      # Produktiv
+```
