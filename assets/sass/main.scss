@@ -1,14 +1,12 @@
+@use "sass:math";
+@use "sass:color";
+
 // Import Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 // Import eigene Stile
 @import "variables";
 @import "custom";
-
-@use "sass:math";
-@use "sass:color";
-
-@use 'variables' as *;
 
 @use "bootstrap" as * with (
   $primary: #007bff,
