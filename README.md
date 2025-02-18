@@ -12,6 +12,12 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 - FTP Deployment
 - Back to Top Button
 
+## Voraussetzungen
+
+- PHP 8.0+
+- Composer
+- Node.js & npm
+
 ## Installation
 
 1. Repository klonen:
@@ -36,6 +42,7 @@ cp .env.example .env
 
 4. Projekt aufsetzen:
 ```bash
+composer install
 npm run setup
 ```
 
