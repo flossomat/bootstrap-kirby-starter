@@ -1,5 +1,6 @@
 "use strict";
-var gulp = require('gulp'),
+const fs = require('fs');
+const gulp = require('gulp'),
     sass = require('gulp-sass')(require('sass')),
     autoprefixer = require('gulp-autoprefixer'),
     newer = require('gulp-newer'),

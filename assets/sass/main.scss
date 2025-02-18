@@ -1,6 +1,11 @@
-@use 'variables';
+@use 'sass:math';
+@use 'sass:color';
+
+@use 'variables' as *;
+
 @use '../../node_modules/bootstrap/scss/bootstrap' with (
-  $primary: variables.$primary,
-  $enable-rounded: variables.$enable-rounded
+  $primary: $primary,
+  $enable-rounded: $enable-rounded
 );
-@use 'custom';
+
+@use 'custom' as *;
