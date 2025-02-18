@@ -29,8 +29,8 @@ gulp.task('sass', function () {
         'assets/sass/**/*.scss'
     ])
     .pipe(sourcemaps.init())
-    .pipe(autoprefixer({ Browserslist: ['last 2 versions'], cascade: false }))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(autoprefixer({ Browserslist: ['last 2 versions'], cascade: false }))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./assets/css/'))
     .pipe(browserSync.stream());

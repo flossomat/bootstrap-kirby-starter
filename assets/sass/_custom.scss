@@ -1,9 +1,3 @@
-// Import Bootstrap-Variablen und Mixins
-@use "bootstrap" as *;
-
-// Verwende die neuen @use und @forward Regeln
-@use 'variables';
-
 // Benutzerdefinierte Stile hier
-// Beispiel für Zugriff auf Variablen:
-// color: variables.$primary;
+// Alle Bootstrap-Variablen und Mixins sind bereits verfügbar
+// durch den Import in main.scss
