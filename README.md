@@ -26,31 +26,19 @@ node -v       # Sollte Node.js Version anzeigen
 npm -v        # Sollte npm Version anzeigen
 ```
 
-2. Kirby als Git-Submodule installieren:
+2. Kirby Starterkit klonen:
 ```bash
-# Kirby Starterkit klonen
 git clone https://github.com/getkirby/starterkit.git mein-projekt
 cd mein-projekt
-
-# Kirby als Submodule einrichten
-rm -R kirby
-git add kirby
-git submodule add https://github.com/getkirby/kirby.git kirby
-git commit -m "Setup Kirby as a submodule"
 ```
 
 3. Bootstrap Starter hinzufügen:
 ```bash
 git remote add bootstrap https://github.com/flossomat/bootstrap-kirby-starter.git
-git config pull.rebase false  # Merge-Strategie festlegen
-git pull bootstrap main --allow-unrelated-histories
-
-# Bei Konflikten:
-# 1. Konflikte in den Dateien lösen
-# 2. Gelöste Dateien stagen
-git add .
-# 3. Merge abschließen
-git commit -m "Merge bootstrap-kirby-starter into project"
+git checkout bootstrap/main -- assets/
+git checkout bootstrap/main -- gulpfile.js
+git checkout bootstrap/main -- package.json
+git checkout bootstrap/main -- .env.example
 ```
 
 4. Projekt aufsetzen:
