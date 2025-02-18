@@ -1,3 +1,10 @@
+// Import Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Import eigene Stile
+@import "variables";
+@import "custom";
+
 @use "sass:math";
 @use "sass:color";
 
