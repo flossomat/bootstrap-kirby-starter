@@ -15,38 +15,44 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 ## Voraussetzungen
 
 - PHP 8.0+
-- Composer
-- Node.js & npm
+- Composer (https://getcomposer.org/download/)
+- Node.js & npm (https://nodejs.org/)
 
 ## Installation
 
-1. Repository klonen:
+1. Voraussetzungen prüfen:
 ```bash
-git clone https://github.com/flossomat/bootstrap-kirby-starter.git mein-projekt
+php -v        # Sollte PHP 8.0 oder höher anzeigen
+composer -V   # Sollte Composer Version anzeigen
+node -v       # Sollte Node.js Version anzeigen
+npm -v        # Sollte npm Version anzeigen
+```
+
+2. Kirby Plainkit klonen:
+```bash
+git clone https://github.com/getkirby/plainkit mein-projekt
 cd mein-projekt
 ```
 
-2. Git neu initialisieren (optional):
+3. Bootstrap Starter hinzufügen:
 ```bash
-rm -rf .git
-git init
-git add .
-git commit -m "Initial commit"
+git remote add bootstrap https://github.com/flossomat/bootstrap-kirby-starter.git
+git pull bootstrap main --allow-unrelated-histories
 ```
 
-3. Projekt aufsetzen:
+4. Projekt aufsetzen:
 ```bash
-composer install  # Installiert Kirby CMS
-npm run setup    # Installiert npm Abhängigkeiten und initialisiert das Projekt
+composer install    # Installiert Kirby CMS
+npm run setup      # Installiert npm Abhängigkeiten und initialisiert das Projekt
 ```
 
-4. FTP-Konfiguration (optional):
+5. FTP-Konfiguration (optional):
 ```bash
 cp .env.example .env
 # .env Datei mit FTP-Daten bearbeiten
 ```
 
-5. Entwicklungsserver starten:
+6. Entwicklungsserver starten:
 ```bash
 npm start
 ```
