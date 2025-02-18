@@ -1,0 +1,3 @@
+[submodule "site/plugins/kirby-backtotop"]
+	path = site/plugins/kirby-backtotop
+	url = https://github.com/flossomat/kirby-backtotop.git
