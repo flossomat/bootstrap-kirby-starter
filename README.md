@@ -26,7 +26,7 @@ git clone https://github.com/flossomat/bootstrap-kirby-starter.git mein-projekt
 cd mein-projekt
 ```
 
-2. Git neu initialisieren:
+2. Git neu initialisieren (optional):
 ```bash
 rm -rf .git
 git init
@@ -34,16 +34,16 @@ git add .
 git commit -m "Initial commit"
 ```
 
-3. FTP-Konfiguration:
+3. Projekt aufsetzen:
+```bash
+composer install  # Installiert Kirby CMS
+npm run setup    # Installiert npm Abhängigkeiten und initialisiert das Projekt
+```
+
+4. FTP-Konfiguration (optional):
 ```bash
 cp .env.example .env
 # .env Datei mit FTP-Daten bearbeiten
-```
-
-4. Projekt aufsetzen:
-```bash
-composer install
-npm run setup
 ```
 
 5. Entwicklungsserver starten:

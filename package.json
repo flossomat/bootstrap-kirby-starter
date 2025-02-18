@@ -5,7 +5,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "setup": "npm install && composer require getkirby/cms && gulp init"
+    "setup": "composer install && npm install && gulp init"
   },
   "dependencies": {
     "bootstrap": "^5.3.0",
