@@ -49,6 +49,7 @@ cd mein-projekt
 
 # Kirby als Submodule einrichten
 rm -R kirby
+git add kirby
 git submodule add https://github.com/getkirby/kirby.git kirby
 git commit -m "Setup Kirby as a submodule"
 ```
@@ -56,12 +57,21 @@ git commit -m "Setup Kirby as a submodule"
 3. Bootstrap Starter hinzufügen:
 ```bash
 git remote add bootstrap https://github.com/flossomat/bootstrap-kirby-starter.git
+git config pull.rebase false  # Merge-Strategie festlegen
 git pull bootstrap main --allow-unrelated-histories
+
+# Bei Konflikten:
+# 1. Konflikte in den Dateien lösen
+# 2. Gelöste Dateien stagen
+git add .
+# 3. Merge abschließen
+git commit -m "Merge bootstrap-kirby-starter into project"
 ```
 
 4. Projekt aufsetzen:
 ```bash
-npm run setup      # Installiert npm Abhängigkeiten und initialisiert das Projekt
+npm install     # Node-Abhängigkeiten installieren
+npm run setup   # Projekt initialisieren
 ```
 
 5. FTP-Konfiguration (optional):
@@ -78,7 +88,7 @@ npm start
 ## Verzeichnisstruktur
 
 ```
-bootstrap-kirby-starter/
+projekt/
 ├── assets/
 │   ├── css/          # Kompilierte CSS-Dateien
 │   ├── fonts/        # Schriftarten
@@ -86,6 +96,7 @@ bootstrap-kirby-starter/
 │   ├── js/          # JavaScript-Dateien
 │   └── sass/        # SCSS-Quelldateien
 ├── content/         # Kirby Inhalte
+├── kirby/          # Kirby Core (Git Submodule)
 └── site/           # Kirby System
     ├── blueprints/ # Kirby Blueprints
     ├── snippets/   # Kirby Snippets
