@@ -26,19 +26,22 @@ node -v       # Sollte Node.js Version anzeigen
 npm -v        # Sollte npm Version anzeigen
 ```
 
-2. Kirby Starterkit klonen:
+2. Bootstrap Kirby Starter klonen:
 ```bash
-git clone https://github.com/getkirby/starterkit.git mein-projekt
+git clone https://github.com/flossomat/bootstrap-kirby-starter.git mein-projekt
 cd mein-projekt
 ```
 
-3. Bootstrap Starter hinzufügen:
+3. Kirby Starterkit hinzufügen:
 ```bash
-git remote add bootstrap https://github.com/flossomat/bootstrap-kirby-starter.git
-git checkout bootstrap/main -- assets/
-git checkout bootstrap/main -- gulpfile.js
-git checkout bootstrap/main -- package.json
-git checkout bootstrap/main -- .env.example
+# Kirby Starterkit temporär klonen
+git clone https://github.com/getkirby/starterkit.git kirby-temp
+# Kirby-spezifische Dateien kopieren
+cp -r kirby-temp/kirby ./
+cp -r kirby-temp/site ./
+cp -r kirby-temp/content ./
+# Aufräumen
+rm -rf kirby-temp
 ```
 
 4. Projekt aufsetzen:
@@ -47,57 +50,6 @@ npm install     # Node-Abhängigkeiten installieren
 npm run setup   # Projekt initialisieren
 ```
 
-5. FTP-Konfiguration (optional):
-```bash
-cp .env.example .env
-# .env Datei mit FTP-Daten bearbeiten
-```
+## Weitere Informationen
 
-6. Entwicklungsserver starten:
-```bash
-npm start
-```
-
-## Verzeichnisstruktur
-
-```
-projekt/
-├── assets/
-│   ├── css/          # Kompilierte CSS-Dateien
-│   ├── fonts/        # Schriftarten
-│   ├── images/       # Optimierte Bilder
-│   ├── js/          # JavaScript-Dateien
-│   └── sass/        # SCSS-Quelldateien
-├── content/         # Kirby Inhalte
-├── kirby/          # Kirby Core (Git Submodule)
-└── site/           # Kirby System
-    ├── blueprints/ # Kirby Blueprints
-    ├── snippets/   # Kirby Snippets
-    └── templates/  # Kirby Templates
-```
-
-## Assets und Entwicklung
-
-Das Projekt nutzt Bootstrap 5 und Gulp für Asset-Management:
-
-- SASS/SCSS Kompilierung
-- JavaScript Optimierung
-- Bildoptimierung
-- Browser-Sync
-- FTP Deployment
-
-### Entwicklungsserver starten:
-```bash
-npm start
-```
-
-### Assets bauen:
-```bash
-npm run build
-```
-
-### Deployment:
-```bash
-gulp deploy-dry  # Test
-gulp deploy      # Produktiv
-```
+[... Rest der Dokumentation ...]
