@@ -39,6 +39,13 @@ rm -rf bootstrap-temp
 echo_step "Erstelle .env aus .env.example..."
 cp .env.example .env
 
+# Projektname aus aktuellem Verzeichnis ermitteln
+PROJECT_NAME=$(basename "$PWD")
+echo_step "Erkannter Projektname: $PROJECT_NAME"
+
+# Optional: LOCAL_URL in .env setzen wenn gewünscht
+# sed -i '' "s|LOCAL_URL=|LOCAL_URL=http://localhost/${PROJECT_NAME}|" .env
+
 # 6. Abhängigkeiten installieren
 echo_step "Installiere Abhängigkeiten..."
 composer install

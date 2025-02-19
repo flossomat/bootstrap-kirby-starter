@@ -1,4 +1,16 @@
 "use strict";
+
+// Projekt-Konfiguration
+const path = require('path');
+const projectName = path.basename(process.cwd());
+const dotenv = require('dotenv');
+
+// Lade .env Konfiguration
+dotenv.config();
+
+// Setze Standard-URL falls keine in .env definiert
+const localUrl = process.env.LOCAL_URL || `http://localhost/${projectName}`;
+
 var gulp = require('gulp'),
     sass = require('gulp-sass')(require('sass')),
     autoprefixer = require('gulp-autoprefixer'),
@@ -20,7 +32,7 @@ sass.compiler = require('sass');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "localhost:8888/bootstrap-kirby-starter/",
+        proxy: localUrl,
         port: 8888,
         open: true,
         notify: false
