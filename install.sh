@@ -28,21 +28,25 @@ cp -r bootstrap-temp/assets ./
 cp bootstrap-temp/gulpfile.js ./
 cp bootstrap-temp/package.json ./
 cp bootstrap-temp/composer.json ./
-cp bootstrap-temp/.env.example ./.env
+cp bootstrap-temp/.env.example ./
 cp bootstrap-temp/.gitignore ./
 
 # 4. Aufräumen
 echo_step "Räume auf..."
 rm -rf bootstrap-temp
 
-# 5. Abhängigkeiten installieren
+# 5. Umgebungsvariablen einrichten
+echo_step "Erstelle .env aus .env.example..."
+cp .env.example .env
+
+# 6. Abhängigkeiten installieren
 echo_step "Installiere Abhängigkeiten..."
 composer install
 npm install
 
-# 6. Projekt initialisieren
+# 7. Projekt initialisieren
 echo_step "Initialisiere Projekt..."
 npm run setup
 
 echo_success "Installation abgeschlossen!"
-echo_success "Starte den Entwicklungsserver mit: npm start" 
+echo_success "Passe die Umgebungsvariablen in .env an und starte dann den Entwicklungsserver mit: npm start" 
