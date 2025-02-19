@@ -18,20 +18,28 @@ Ein Entwicklungstemplate für Kirby CMS mit Bootstrap 5 und Gulp.
 
 ## Installation
 
-1. Voraussetzungen prüfen:
+### Automatische Installation
+
 ```bash
-php -v        # Sollte PHP 8.1-8.3 anzeigen
-node -v       # Sollte Node.js Version anzeigen
-npm -v        # Sollte npm Version anzeigen
+# 1. Neues Projektverzeichnis erstellen
+mkdir mein-projekt
+cd mein-projekt
+
+# 2. Installations-Skript herunterladen und ausführen
+curl -o- https://raw.githubusercontent.com/flossomat/bootstrap-kirby-starter/main/install.sh | bash
 ```
 
-2. Kirby Plainkit klonen:
+### Manuelle Installation
+
+Falls Sie die Installation lieber manuell durchführen möchten:
+
+1. Kirby Plainkit klonen:
 ```bash
 git clone https://github.com/getkirby/plainkit.git mein-projekt
 cd mein-projekt
 ```
 
-3. Bootstrap Starter hinzufügen:
+2. Bootstrap Starter hinzufügen:
 ```bash
 # Bootstrap Starter temporär klonen
 git clone https://github.com/flossomat/bootstrap-kirby-starter.git bootstrap-temp
@@ -112,7 +120,6 @@ FTP_HOST=ftp.example.com
 FTP_USER=username
 FTP_PASSWORD=password
 ```
-
 #### Upload-Befehle
 - `gulp deploy-dry`: Testet das Deployment (zeigt zu aktualisierende Dateien)
 - `gulp deploy`: Lädt Dateien auf den Server
