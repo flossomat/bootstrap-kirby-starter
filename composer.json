@@ -2,8 +2,14 @@
     "name": "flossomat/bootstrap-kirby-starter",
     "description": "Bootstrap 5 + Kirby CMS Starter Template",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/flossomat/kirby-backtotop.git"
+        }
+    ],
     "require": {
-        "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
+        "php": ">=8.1.0",
         "getkirby/cms": "^3.10",
         "flossomat/kirby-backtotop": "^1.0"
     },
