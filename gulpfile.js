@@ -155,12 +155,16 @@ gulp.task('deploy', async (done) => {
     const fs = require('fs');
     const ftp = require('basic-ftp');
     
-    const client = new ftp.Client(30000); // Timeout auf 30 Sekunden setzen
-    client.ftp.verbose = true; // Verbose für besseres Debugging
+    const client = new ftp.Client(30000);
+    client.ftp.verbose = true;
 
     try {
         console.log('\nStarting deployment...');
         console.log('----------------------------------------');
+
+        // Remote Pfad aus .env oder Standard
+        const remotePath = process.env.REMOTE_PATH || '/';
+        console.log(`Remote Pfad: ${remotePath}`);
 
         // FTP oder SFTP basierend auf Port
         const isSFTP = process.env.FTP_PORT === '22';
@@ -172,7 +176,7 @@ gulp.task('deploy', async (done) => {
             secure: isSFTP,
             port: process.env.FTP_PORT || (isSFTP ? 22 : 21),
             secureOptions: {
-                rejectUnauthorized: false // Für selbst-signierte Zertifikate
+                rejectUnauthorized: false
             },
             timeout: 30000,
             retries: 3
@@ -246,7 +250,7 @@ gulp.task('deploy', async (done) => {
             }
         }
 
-        const result = await uploadDirectory(__dirname, '/html');
+        const result = await uploadDirectory(__dirname, remotePath);
         
         console.log('----------------------------------------');
         console.log(`Deployment completed!`);
@@ -280,6 +284,10 @@ gulp.task('deploy-dry', async (done) => {
     try {
         console.log('\nPrüfe auf zu aktualisierende Dateien...');
         console.log('----------------------------------------');
+
+        // Remote Pfad aus .env oder Standard
+        const remotePath = process.env.REMOTE_PATH || '/';
+        console.log(`Remote Pfad: ${remotePath}`);
 
         // FTP oder SFTP basierend auf Port
         const isSFTP = process.env.FTP_PORT === '22';
@@ -362,7 +370,7 @@ gulp.task('deploy-dry', async (done) => {
             }
         }
 
-        const result = await checkDirectory(__dirname, '/html');
+        const result = await checkDirectory(__dirname, remotePath);
         
         console.log('----------------------------------------');
         if (result.toUpdate === 0) {
