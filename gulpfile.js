@@ -259,19 +259,27 @@ gulp.task('deploy-dry', async (done) => {
     const fs = require('fs');
     const ftp = require('basic-ftp');
     
-    const client = new ftp.Client();
-    client.ftp.verbose = false;
+    const client = new ftp.Client(30000); // Timeout auf 30 Sekunden setzen
+    client.ftp.verbose = true; // Verbose für besseres Debugging
 
     try {
         console.log('\nPrüfe auf zu aktualisierende Dateien...');
         console.log('----------------------------------------');
 
+        // FTP oder SFTP basierend auf Port
+        const isSFTP = process.env.FTP_PORT === '22';
+        
         await client.access({
             host: process.env.FTP_HOST,
             user: process.env.FTP_USER,
             password: process.env.FTP_PASSWORD,
-            secure: true,
-            port: 22
+            secure: isSFTP,
+            port: process.env.FTP_PORT || (isSFTP ? 22 : 21),
+            secureOptions: {
+                rejectUnauthorized: false // Für selbst-signierte Zertifikate
+            },
+            timeout: 30000,
+            retries: 3
         });
 
         // Funktion zum rekursiven Prüfen von Dateien
@@ -350,9 +358,16 @@ gulp.task('deploy-dry', async (done) => {
 
     } catch (err) {
         console.error('Error:', err);
+        if (err.message.includes('Timeout')) {
+            console.log('\nTipps zur Fehlerbehebung:');
+            console.log('1. Prüfen Sie die FTP-Zugangsdaten in .env');
+            console.log('2. Stellen Sie sicher, dass der Server erreichbar ist');
+            console.log('3. Prüfen Sie, ob der richtige Port verwendet wird (21 für FTP, 22 für SFTP)');
+            console.log('4. Prüfen Sie die Firewall-Einstellungen');
+        }
+        done(err);
     } finally {
         client.close();
-        done();
     }
 });
 
