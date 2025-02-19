@@ -31,11 +31,19 @@ cp bootstrap-temp/composer.json ./
 cp bootstrap-temp/.env.example ./
 cp bootstrap-temp/.gitignore ./
 
-# 4. Aufräumen
+# 4. Back-to-Top Plugin installieren
+echo_step "Installiere Back-to-Top Plugin..."
+mkdir -p site/plugins
+curl -L https://github.com/flossomat/kirby-backtotop/archive/main.zip -o backtotop.zip
+unzip backtotop.zip -d site/plugins/
+mv site/plugins/kirby-backtotop-main site/plugins/kirby-backtotop
+rm backtotop.zip
+
+# 5. Aufräumen
 echo_step "Räume auf..."
 rm -rf bootstrap-temp
 
-# 5. Umgebungsvariablen einrichten
+# 6. Umgebungsvariablen einrichten
 echo_step "Erstelle .env aus .env.example..."
 cp .env.example .env
 
@@ -46,12 +54,12 @@ echo_step "Erkannter Projektname: $PROJECT_NAME"
 # Optional: LOCAL_URL in .env setzen wenn gewünscht
 # sed -i '' "s|LOCAL_URL=|LOCAL_URL=http://localhost/${PROJECT_NAME}|" .env
 
-# 6. Abhängigkeiten installieren
+# 7. Abhängigkeiten installieren
 echo_step "Installiere Abhängigkeiten..."
 composer install
 npm install
 
-# 7. Projekt initialisieren
+# 8. Projekt initialisieren
 echo_step "Initialisiere Projekt..."
 npm run setup
 
