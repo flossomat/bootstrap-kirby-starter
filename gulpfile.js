@@ -32,19 +32,17 @@ sass.compiler = require('sass');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: localUrl,
-        port: 8888,
+        proxy: "localhost:8888/kolb",  // Expliziter Port für MAMP
+        port: 8890,                    // Browser-Sync Port
         ui: {
-            port: 8889
+            port: 8891                 // UI Port
         },
         open: true,
         notify: false,
-        // Wichtig: Browser-Sync soll den Apache-Port verwenden
         serveStatic: [{
             route: '/assets',
             dir: 'assets'
         }],
-        // Verhindert, dass Browser-Sync einen anderen Port verwendet
         snippetOptions: {
             rule: {
                 match: /<\/body>/i,
