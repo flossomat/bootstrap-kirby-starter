@@ -97,6 +97,30 @@ Der Build-Prozess optimiert:
 - JavaScript wird zusammengefasst und minimiert
 - Sourcemaps werden für Debugging generiert
 
+### Deployment
+
+#### FTP-Konfiguration
+1. Kopiere `.env.example` zu `.env`:
+```bash
+cp .env.example .env
+```
+
+2. Passe die FTP-Zugangsdaten in `.env` an:
+```env
+FTP_HOST=ftp.example.com
+FTP_USER=username
+FTP_PASSWORD=password
+```
+
+#### Upload-Befehle
+- `gulp deploy-dry`: Testet das Deployment (zeigt zu aktualisierende Dateien)
+- `gulp deploy`: Lädt Dateien auf den Server
+- `gulp production`: Baut Assets und führt Deployment durch
+
+#### Content-Synchronisation
+- `gulp download-content-dry`: Zeigt zu aktualisierende Content-Dateien
+- `gulp download-content`: Lädt Content-Ordner vom Server
+
 ## Lizenz
 
 MIT License
