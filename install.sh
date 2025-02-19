@@ -56,4 +56,5 @@ echo_step "Initialisiere Projekt..."
 npm run setup
 
 echo_success "Installation abgeschlossen!"
+echo_success "Back-to-Top Button ist installiert. Fügen Sie <?php snippet('backtotop') ?> in Ihr Template ein."
 echo_success "Passe die Umgebungsvariablen in .env an und starte dann den Entwicklungsserver mit: npm start" 
