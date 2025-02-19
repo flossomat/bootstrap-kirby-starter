@@ -39,6 +39,7 @@ git clone https://github.com/flossomat/bootstrap-kirby-starter.git bootstrap-tem
 cp -r bootstrap-temp/assets ./
 cp bootstrap-temp/gulpfile.js ./
 cp bootstrap-temp/package.json ./
+cp bootstrap-temp/.env.example ./
 # Aufräumen
 rm -rf bootstrap-temp
 ```
