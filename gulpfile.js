@@ -34,8 +34,25 @@ gulp.task('browser-sync', function() {
     browserSync.init({
         proxy: localUrl,
         port: 8888,
+        ui: {
+            port: 8889
+        },
         open: true,
-        notify: false
+        notify: false,
+        // Wichtig: Browser-Sync soll den Apache-Port verwenden
+        serveStatic: [{
+            route: '/assets',
+            dir: 'assets'
+        }],
+        // Verhindert, dass Browser-Sync einen anderen Port verwendet
+        snippetOptions: {
+            rule: {
+                match: /<\/body>/i,
+                fn: function (snippet, match) {
+                    return snippet + match;
+                }
+            }
+        }
     });
 });
 
